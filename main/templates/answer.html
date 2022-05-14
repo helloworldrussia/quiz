@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<div class="main" style="text-align: center; margin-top: 10%; margin-left: 40%; margin-right: 13%;">
+<h4 style="color: white;">{{ q_text }}</h4>
+{% if message %}
+<br>
+<br>
+<h4 style="text-align: center;{% if success_message %}color: white;{% elif fail_message %}color: #262426;{% endif %}">{{ message }}</h4>
+{% endif %}
+{% if mode %}
+<br>
+<form method="POST">
+{% csrf_token %}
+<div class="input-group mb-3" style="text-align: center;">
+  <input type="text" class="form-control" placeholder="Введите ответ" name="answer" aria-describedby="button-addon2">
+  <button class="btn btn-light" type="submit" id="button-addon2" style="color: white; background-color: #262426;">Ответить</button>
+</div>
+</form>
+{% endif %}
+</div>
+{% endblock content %}

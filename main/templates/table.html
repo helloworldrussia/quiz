@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  a {
+    color: #262426;
+    font-size: 125%;
+  }
+  a:hover {
+    color: white;
+  }
+</style>
+<div class="main-table" style="margin-top: 2%; margin-left: 35%; margin-right: 10%; text-align: center;">
+  <table class="table table-bordered" style="color: #262426; border-color: #262426; vertical-align: middle;">
+    <thead>
+      <tr style="background-color: #262426; color: white; font-size: 150%;">
+        <td scope="col" style="text-align: left; width: 10%;">Темы</td>
+        <td scope="col" colspan="5">Количество баллов</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" style="text-align: left;">Классификация<br>философских<br>учений</th>
+        <td><a href="{% url 'answer' cat_numb=1 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=1 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=1 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=1 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=1 price=500 mode=1 %}">500</a></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align: left;">Философия<br>Древней<br>Греции</th>
+        <td><a href="{% url 'answer' cat_numb=2 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=2 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=2 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=2 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=2 price=500 mode=1 %}">500</a></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align: left;">Философия<br>Средневековья</th>
+        <td><a href="{% url 'answer' cat_numb=3 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=3 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=3 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=3 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=3 price=500 mode=1 %}">500</a></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align: left;">Философия<br>Возрождения</th>
+        <td><a href="{% url 'answer' cat_numb=4 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=4 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=4 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=4 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=4 price=500 mode=1 %}">500</a></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align: left;">Философия<br>Просвещения</th>
+        <td><a href="{% url 'answer' cat_numb=5 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=5 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=5 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=5 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=5 price=500 mode=1 %}">500</a></td>
+      </tr>
+      <tr>
+        <th scope="row" style="text-align: left;">Классическая<br>немецкая<br>философия</th>
+        <td><a href="{% url 'answer' cat_numb=6 price=100 mode=1 %}">100</a></td>
+        <td><a href="{% url 'answer' cat_numb=6 price=200 mode=1 %}">200</a></td>
+        <td><a href="{% url 'answer' cat_numb=6 price=300 mode=1 %}">300</a></td>
+        <td><a href="{% url 'answer' cat_numb=6 price=400 mode=1 %}">400</a></td>
+        <td><a href="{% url 'answer' cat_numb=6 price=500 mode=1 %}">500</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
