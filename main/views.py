@@ -34,6 +34,10 @@ def answer_view(request, cat_numb, price, mode):
                 request.session['score'] = q.price
         else:
             context['fail_message'] = 1
+            try:
+                request.session['score'] -= q.price
+            except:
+                request.session['score'] = 0 - q.price
 
     if request.method == "GET":
         # Если mode = 1, то пользователь еще не ответил, показываем ему инпут
