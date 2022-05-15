@@ -3,11 +3,21 @@
 {% block content %}
 <br>
 <div class="main" style="text-align: center; margin-top: 10%; margin-left: 40%; margin-right: 13%;">
-<h4 style="color: white;">{{ q_text }}</h4>
+<h4 style="color: white;">{{ q.question }}</h4>
 {% if message %}
 <br>
 <br>
-<h4 style="text-align: center;{% if success_message %}color: white;{% elif fail_message %}color: #262426;{% endif %}">{{ message }}</h4>
+<h4 style="text-align: center;color: #262426;">{{ message }}</h4>
+{% endif %}
+{% if success_message %}
+<br>
+<br>
+<h4 style="text-align: center; color: white;">{{ q.success_mess }}</h4>
+{% endif %}
+{% if fail_message %}
+<br>
+<br>
+<h4 style="text-align: center;color: #262426;">{{ q.fail_mess }}</h4>
 {% endif %}
 {% if mode %}
 <br>
@@ -18,6 +28,10 @@
   <button class="btn btn-light" type="submit" id="button-addon2" style="color: white; background-color: #262426;">Ответить</button>
 </div>
 </form>
+{% endif %}
+{% if fail_message %}
+<br>
+<h4 style="text-align: center; color: white;">Правильный ответ: {{ q.answer }}</h4>
 {% endif %}
 </div>
 {% endblock content %}
