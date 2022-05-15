@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
 <br>
-<div class="main" style="text-align: center; margin-top: 10%; margin-left: 40%; margin-right: 13%;">
-<h4 style="color: white;">{{ q.question }}</h4>
+<div id="main" style="text-align: center; margin-top: 5%; margin-left: 40%; margin-right: 13%;">
+<div id="question_text">
+  <h4 style="color: white;">{{ q.question }}</h4>
+</div>
 {% if message %}
 <br>
 <br>
@@ -33,5 +35,12 @@
 <br>
 <h4 style="text-align: center; color: white;">Правильный ответ: {{ q.answer }}</h4>
 {% endif %}
+{% if success_message %}
+  <br>
+<img src="https://c.tenor.com/pIDqjS_2Ej4AAAAd/the-school-of-athens-aristotle.gif" style="height: 50%; width: 50%;">
+<br>
+{% endif %}
+<br>
+<button type="button" class="btn btn-dark" onclick="window.location.href = '{% url 'table' %}';">Продолжить</button>
 </div>
 {% endblock content %}

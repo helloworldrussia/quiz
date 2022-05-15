@@ -1,12 +1,16 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from main.models import Question
 
 
+def clear_score(request):
+    request.session['score'] = 0
+    return redirect('table')
+
+
 # отображение главной таблицы с категориями и ценой вопросов
 def table_view(request):
-    return render(request, 'table.html')
+    return render(request, 'table.html', {"background": "fon.png"})
 
 
 # view страницы вопроса, на ней пользователь может ответить на вопрос и проверить результат
@@ -24,6 +28,10 @@ def answer_view(request, cat_numb, price, mode):
     if request.method == "POST":
         if request.POST['answer'] == q.answer:
             context['success_message'] = 1
+            try:
+                request.session['score'] += q.price
+            except:
+                request.session['score'] = q.price
         else:
             context['fail_message'] = 1
 
@@ -31,5 +39,6 @@ def answer_view(request, cat_numb, price, mode):
         # Если mode = 1, то пользователь еще не ответил, показываем ему инпут
         if mode == 1:
             context['mode'] = True
-
+    # передаем название файла фона, который соотвествует вопросу
+    context['background'] = f'{q.price}.png'
     return render(request, 'answer.html', context)
