@@ -32,6 +32,8 @@
     </style>
 </head>
 <body background="{% get_static_prefix %}{{ background }}">
+{% if score_off %}
+{% else %}
 <div class="score-main">
     <div class="score" id="score-button">
         <button type="button" onclick="window.location.href = '{% url 'clear-score' %}';" class="btn btn-dark" style="height;">Обнулить</button>
@@ -40,6 +42,7 @@
         <h4>Баллы: {{ request.session.score }}</h4>
     </div>
 </div>
+{% endif %}
 {% block content %}{% endblock content %}
 </body>
 </html>

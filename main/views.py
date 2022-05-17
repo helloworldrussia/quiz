@@ -3,6 +3,16 @@ from django.core.exceptions import ObjectDoesNotExist
 from main.models import Question
 
 
+def start_view(request):
+    context = {"background": "start.jpg", "score_off": 1}
+    if request.method == "GET":
+        context['first_text'] = 1
+    if request.method == "POST":
+        context['second_text'] = 1
+        context["background"] = "fon.png"
+    return render(request, 'start.html', context)
+
+
 def clear_score(request):
     request.session['score'] = 0
     return redirect('table')
